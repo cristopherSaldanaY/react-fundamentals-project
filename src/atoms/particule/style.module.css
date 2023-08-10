@@ -107,7 +107,7 @@ menu{
   .matrizImage{
     position: relative;
     left: 50px;
-    bottom: 118px;
+    bottom: 119px;
     clip-path: polygon(29% 0, 100% 0%, 100% 100%, 0% 100%);
   }
 }
