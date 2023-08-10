@@ -43,7 +43,71 @@ menu{
 
 .main_principal{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
+}
+
+/* Estilos para pantallas pequeñas (hasta 600px) */
+@media (max-width: 600px) {
+  
+    .main_principal{
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .main_principal h1, h2{
+        margin: 0;
+        text-align: center;
+    }
+
+    .main_principal p{
+        text-align: center;
+    }
+
+    .matrizContainer{
+        position: relative;
+        width: 133%;
+        right: 60px;
+    }
+
+    .matrizContainer{
+        position: relative;
+        width: 150%;
+        right: 60px;
+    }
+}
+
+/* Estilos para pantallas medianas (de 601px a 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  /* Agrega aquí tus estilos para pantallas medianas */
+  .matrizContainer{
+    position: relative;
+    width: 117%;
+    right: 60px;
+}
+
+
+}
+
+/* Estilos para pantallas grandes (de 993px a 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  /* Agrega aquí tus estilos para pantallas grandes */
+  .matrizImage{
+    position: relative;
+    left: 50px;
+    bottom: 118px;
+    clip-path: polygon(29% 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+/* Estilos para pantallas extra grandes (más de 1200px) */
+@media (min-width: 1201px) {
+  /* Agrega aquí tus estilos para pantallas extra grandes */
+  .matrizImage{
+    position: relative;
+    left: 50px;
+    bottom: 118px;
+    clip-path: polygon(29% 0, 100% 0%, 100% 100%, 0% 100%);
+  }
 }

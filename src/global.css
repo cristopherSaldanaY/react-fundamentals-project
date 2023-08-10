@@ -2,3 +2,27 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/* Estilos para pantallas pequeñas (hasta 600px) */
+@media (max-width: 600px) {
+  
+    .main_principal{
+        flex-direction: column;
+        gap: 0px;
+    }
+}
+
+/* Estilos para pantallas medianas (de 601px a 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  /* Agrega aquí tus estilos para pantallas medianas */
+}
+
+/* Estilos para pantallas grandes (de 993px a 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  /* Agrega aquí tus estilos para pantallas grandes */
+}
+
+/* Estilos para pantallas extra grandes (más de 1200px) */
+@media (min-width: 1201px) {
+  /* Agrega aquí tus estilos para pantallas extra grandes */
+}

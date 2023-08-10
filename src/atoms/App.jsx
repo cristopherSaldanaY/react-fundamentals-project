@@ -9,7 +9,7 @@ function App() {
     <Layout className={s.layout}>
       <Header className={s.headerStyle}>
         <Row gutter={2} style={{ height: "100%" }}>
-          <Col xs={12} md={9} style={{ maxHeight: "100%" }}>
+          <Col xs={12} md={7} style={{ maxHeight: "100%" }}>
             <img src={Logo} alt="" className={s.logoImage} />
           </Col>
           <Col xs={12} md={15} style={{ height: "100%" }}>
@@ -42,9 +42,12 @@ function App() {
                 10 años de experiencia.
               </p>
             </div>
+
           </Col>
           <Col lg={11}>
-            <img src={Matriz} alt="" className={s.matrizImage} />
+            <div className={s.matrizContainer}>
+              <img src={Matriz} alt="" className={s.matrizImage} />
+            </div>
           </Col>
         </Row>
       </Content>
