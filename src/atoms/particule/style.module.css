@@ -48,8 +48,16 @@ menu{
     gap: 20px;
 }
 
+@media (max-width: 480px){
+    
+}
+
+@media (max-width: 634px){
+
+}
+
 /* Estilos para pantallas pequeñas (hasta 600px) */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   
     .main_principal{
         flex-direction: column;
@@ -67,19 +75,14 @@ menu{
 
     .matrizContainer{
         position: relative;
-        width: 133%;
+        width: 138%;
         right: 60px;
     }
 
-    .matrizContainer{
-        position: relative;
-        width: 150%;
-        right: 60px;
-    }
 }
 
 /* Estilos para pantallas medianas (de 601px a 992px) */
-@media (min-width: 601px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 991px) {
   /* Agrega aquí tus estilos para pantallas medianas */
   .matrizContainer{
     position: relative;
@@ -87,22 +90,38 @@ menu{
     right: 60px;
 }
 
+.cardAbout{
+    width: auto;
+    margin-top: 16;
+    border: "2px solid #f4f4f4";
+    margin-bottom: 20px;
+}
+
 
 }
 
 /* Estilos para pantallas grandes (de 993px a 1200px) */
-@media (min-width: 993px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   /* Agrega aquí tus estilos para pantallas grandes */
   .matrizImage{
     position: relative;
     left: 50px;
-    bottom: 118px;
+    bottom: 245px;
     clip-path: polygon(29% 0, 100% 0%, 100% 100%, 0% 100%);
   }
+
+  .cardAbout{
+        width: 844px;
+        margin-top: 16;
+        border: "2px solid #f4f4f4";
+        margin-bottom: 20px;
+  }
+
+
 }
 
 /* Estilos para pantallas extra grandes (más de 1200px) */
-@media (min-width: 1201px) {
+@media (min-width: 1200px) {
   /* Agrega aquí tus estilos para pantallas extra grandes */
   .matrizImage{
     position: relative;
