@@ -142,7 +142,7 @@ function App() {
           textAlign: 'center',
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        Dev Cristopher Saldaña ©2023
       </Footer>
     </Layout>
   );
