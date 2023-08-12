@@ -1,0 +1,4 @@
+const API_KEY = 'AIzaSyDsiy9VLnPsHqTEpK3nNvs0x5KOS1tqkTs';
+const CHANNEL_ID = 'UCWBSxb_47VfQGA6R98SnJ3A'
+
+export { API_KEY, CHANNEL_ID };

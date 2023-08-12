@@ -2,11 +2,36 @@ import s from "./particule/style.module.css";
 import Logo from "../assets/logo.png";
 import Matriz from "../assets/matriz.jpg";
 import LogoCircle from "../assets/logoCircular.png";
-import { Layout, Menu, Row, Col, Image, Card, Avatar } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
+import { Layout, Menu, Row, Col, Image, Card, Avatar, Typography } from "antd";
+import VideoList from "./../molecules/VideoList/VideoList";
+import { YoutubeAPI } from "./../api/youtube-api";
+import { useEffect, useState } from "react";
+
+const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
+const { Title } = Typography;
 
 function App() {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        /*         const videoData = await YoutubeAPI.fetchVideos();
+        setVideos(videoData); */
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleVideoClick = (video) => {
+    setSelectedVideo(video);
+  };
+
   return (
     <Layout className={s.layout}>
       <Header className={s.headerStyle}>
@@ -18,7 +43,6 @@ function App() {
             <Menu
               theme="light"
               mode="horizontal"
-              className={s.menu}
               style={{
                 width: "100%",
                 display: "flex",
@@ -56,21 +80,7 @@ function App() {
               </p>
             </div>
             <div>
-              {/*               <Card
-                title=" Mestre Railson - Presidente fundador da
-                Associação de  Capoeira Sul da Bahia"
-                bordered={true}
-                cover={<img src={LogoCircle}></img>}
-              >
- Em
-                2005 recebeu sua segunda graduação de mestre e em 2015 sua
-                terceira graduação de mestre. Fundou em 1995 a Associação de
-                Capoeira Sul da Bahia com matriz no Arraial d'Ajuda e atualmente
-                com filiais em 18 países. Viaja pelo mundo divulgando a
-                capoeira, ministrando cursos e realizando eventos.
-              </Card> */}
-              <Card className={s.cardAbout}
-              >
+              <Card className={s.cardAbout}>
                 <Meta
                   avatar={<Avatar size={64} src={LogoCircle} />}
                   title="Grupo Capoeira Sul da Bahia - San Bernardo, Chile"
@@ -99,8 +109,41 @@ function App() {
             </div>
           </Col>
         </Row>
+        <div>
+          <div>
+            {selectedVideo && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${selectedVideo.id.videoId}`}
+                  title={selectedVideo.snippet.title}
+                  style={{ border: "none" }}
+                  allowFullScreen
+                ></iframe>
+                <h2>{selectedVideo.snippet.title}</h2>
+              </div>
+            )}
+          </div>
+          <Title level={2}>Últimos videos publicados</Title>
+          <VideoList videos={videos} />
+        </div>
       </Content>
-      <Footer className={s.footerStyle}>Footer</Footer>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Ant Design ©2023 Created by Ant UED
+      </Footer>
     </Layout>
   );
 }
