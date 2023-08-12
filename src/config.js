@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyDsiy9VLnPsHqTEpK3nNvs0x5KOS1tqkTs';
-const CHANNEL_ID = 'UCWBSxb_47VfQGA6R98SnJ3A'
+const API_KEY = process.env.API_KEY;
+const CHANNEL_ID = process.env.CHANNEL_ID
 
 export { API_KEY, CHANNEL_ID };
