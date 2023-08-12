@@ -1,11 +1,12 @@
 import s from "./particule/style.module.css";
 import Logo from "../assets/logo.png";
 import Matriz from "../assets/matriz.jpg";
-import LogoCircle from "../assets/logoCircular.png";
-import { Layout, Menu, Row, Col, Image, Card, Avatar, Typography } from "antd";
+import { Layout, Menu, Row, Col, Card, Typography } from "antd";
 import VideoList from "./../molecules/VideoList/VideoList";
 import { YoutubeAPI } from "./../api/youtube-api";
 import { useEffect, useState } from "react";
+import AboutUs from "./../molecules/AboutUs/AboutUs";
+import TrainWithUs from "./../molecules/TrainWithUs/TrainWithUs";
 
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
@@ -14,6 +15,7 @@ const { Title } = Typography;
 function App() {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [activeMenuItem, setActiveMenuItem] = useState("about");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +34,10 @@ function App() {
     setSelectedVideo(video);
   };
 
+  const handleMenuClick = (e) => {
+    setActiveMenuItem(e.key);
+  };
+
   return (
     <Layout className={s.layout}>
       <Header className={s.headerStyle}>
@@ -43,14 +49,16 @@ function App() {
             <Menu
               theme="light"
               mode="horizontal"
+              selectedKeys={[activeMenuItem]}
+              onClick={handleMenuClick}
               style={{
                 width: "100%",
                 display: "flex",
                 justifyContent: "flex-start",
               }}
             >
-              <Menu.Item key="1">Acerca del grupo</Menu.Item>
-              <Menu.Item key="2">Entrena con nosotros</Menu.Item>
+              <Menu.Item key="about">Acerca del grupo</Menu.Item>
+              <Menu.Item key="train">Entrena con nosotros</Menu.Item>
             </Menu>
           </Col>
         </Row>
@@ -80,27 +88,8 @@ function App() {
               </p>
             </div>
             <div>
-              <Card className={s.cardAbout}>
-                <Meta
-                  avatar={<Avatar size={64} src={LogoCircle} />}
-                  title="Grupo Capoeira Sul da Bahia - San Bernardo, Chile"
-                  description="Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
-                  d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com
-                  o Mestre Estrela em Porto Seguro/Ba. Quando o Mestre Estrela
-                  parou de dar aula, Mestre Railson continuou sua busca pela
-                  capoeira, e foi em uma viagem de férias à Belo Horizonte, em
-                  1986, que conheceu o Mestre Mão Branca, se identificou com o seu
-                  trabalho e a partir daí passou a fazer parte do seu grupo,
-                  recebendo todas as graduações até ser formado Mestre em 1995. Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
-                  d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com
-                  o Mestre Estrela em Porto Seguro/Ba. Quando o Mestre Estrela
-                  parou de dar aula, Mestre Railson continuou sua busca pela
-                  capoeira, e foi em uma viagem de férias à Belo Horizonte, em
-                  1986, que conheceu o Mestre Mão Branca, se identificou com o seu
-                  trabalho e a partir daí passou a fazer parte do seu grupo,
-                  recebendo todas as graduações até ser formado Mestre em 1995."
-                />
-              </Card>
+              {activeMenuItem === "about" && <AboutUs />}
+              {activeMenuItem === "train" && <TrainWithUs />}
             </div>
           </Col>
           <Col lg={11}>
@@ -139,7 +128,7 @@ function App() {
       </Content>
       <Footer
         style={{
-          textAlign: 'center',
+          textAlign: "center",
         }}
       >
         Dev Cristopher Saldaña ©2023
