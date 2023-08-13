@@ -13,6 +13,7 @@ const AboutUs = () => {
   };
   return (
     <Carousel autoplay autoplaySpeed={10000}>
+      
       <Card className={s.cardAbout} title="Mestre Railson">
         Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
         d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com o
