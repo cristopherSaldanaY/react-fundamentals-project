@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./particule/style.module.css";
-import LogoCircle from "../../assets/logoCircular.png";
+
 import { Card, Avatar, Row, Carousel } from "antd";
-import ImgMestre from "../../assets/mestre.jpg";
+
 import ImgMestre2 from "../../assets/mestreRailson.jpg";
 import Eddu from "../../assets/eddu.jpg";
 import Kuben from "../../assets/kuben.jpg"
