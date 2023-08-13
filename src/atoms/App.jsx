@@ -20,7 +20,18 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        /*         const videoData = await YoutubeAPI.fetchVideos();
+        const storedData = localStorage.getItem("youtubeVideos");
+        if (storedData) {
+          console.log("busco en el localstorage");
+          setVideos(JSON.parse(storedData));
+        } else {
+          console.log("busco en la api");
+          const videoData = await YoutubeAPI.fetchVideos();
+          setVideos(videoData);
+          localStorage.setItem("youtubeVideos", JSON.stringify(videoData));
+        }
+
+        /*const videoData = await YoutubeAPI.fetchVideos();
         setVideos(videoData); */
       } catch (error) {
         console.log(error);
@@ -31,6 +42,7 @@ function App() {
   }, []);
 
   const handleVideoClick = (video) => {
+    console.log(video.id.videoId)
     setSelectedVideo(video);
   };
 
@@ -83,8 +95,7 @@ function App() {
             </div>
             <div className={s.main_principal}>
               <p>
-                Monitor de la escuela de Capoeira Sul da Bahia Chile, con mas de
-                10 años de experiencia. lorem*30
+                Instructor de capoeira
               </p>
             </div>
             <div>
@@ -123,7 +134,7 @@ function App() {
             )}
           </div>
           <Title level={2}>Últimos videos publicados</Title>
-          <VideoList videos={videos} />
+          <VideoList videos={videos} onClickItem={handleVideoClick} />
         </div>
       </Content>
       <Footer

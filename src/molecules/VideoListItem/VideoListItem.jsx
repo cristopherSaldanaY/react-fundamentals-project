@@ -5,13 +5,15 @@ import { Card, Typography, Col } from "antd";
 const { Title, Paragraph } = Typography;
 const { Meta } = Card;
 
-const VideoListItem = ({ video, onClick }) => {
-  const handleVideo = () => {
-    onClick(video);
-  };
+const VideoListItem = ({ video, onClickItem }) => {
+
+  const handleItemClick = () => {
+    onClickItem(video)
+  }
+
 
   return (
-    <Col key={video.id.videoId} span={6}>
+    <Col key={video.id.videoId} span={6} onClick={handleItemClick} style={{maxWidth: "24%"}}>
       <Card
         hoverable
         cover={
@@ -20,7 +22,6 @@ const VideoListItem = ({ video, onClick }) => {
             src={video.snippet.thumbnails.default.url}
           />
         }
-        onClick={() => handleVideo}
       >
         <Meta title={video.snippet.title} />
       </Card>
