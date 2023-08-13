@@ -11,15 +11,19 @@ const VideoListItem = ({ video, onClickItem }) => {
     onClickItem(video)
   }
 
+  const imageUrl = video.snippet.thumbnails.high
+  ? video.snippet.thumbnails.high.url
+  : video.snippet.thumbnails.default.url;
+
 
   return (
-    <Col key={video.id.videoId} span={6} onClick={handleItemClick} style={{maxWidth: "24%"}}>
+    <Col key={video.id.videoId} xs={24} md={11} lg={7} xl={4} span={6} onClick={handleItemClick} >
       <Card
         hoverable
         cover={
           <img
             alt={video.snippet.title}
-            src={video.snippet.thumbnails.default.url}
+            src={imageUrl}
           />
         }
       >

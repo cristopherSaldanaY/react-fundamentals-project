@@ -16,6 +16,7 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeMenuItem, setActiveMenuItem] = useState("about");
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +49,10 @@ function App() {
 
   const handleMenuClick = (e) => {
     setActiveMenuItem(e.key);
+  };
+
+  const handleCarouselChange = (currentSlide) => {
+    setActiveSlideIndex(currentSlide);
   };
 
   return (
@@ -92,11 +97,6 @@ function App() {
                 <span>Cristopher Saldaña</span>
                 <span style={{ color: "#4f46e5" }}>@kuben_capoeira</span>
               </h1>
-            </div>
-            <div className={s.main_principal}>
-              <p>
-                Instructor de capoeira
-              </p>
             </div>
             <div>
               {activeMenuItem === "about" && <AboutUs />}
