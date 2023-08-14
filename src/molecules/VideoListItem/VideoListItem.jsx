@@ -1,33 +1,20 @@
-import React from "react";
+import { Card, Col } from "antd";
 import s from "./particule/style.module.css";
-import { Card, Typography, Col } from "antd";
 
-const { Title, Paragraph } = Typography;
 const { Meta } = Card;
 
 const VideoListItem = ({ video, onClickItem }) => {
+  const { title, thumbnails } = video.snippet;
+  const imageUrl = thumbnails?.high?.url || thumbnails?.default?.url;
 
   const handleItemClick = () => {
-    onClickItem(video)
-  }
-
-  const imageUrl = video.snippet.thumbnails.high
-  ? video.snippet.thumbnails.high.url
-  : video.snippet.thumbnails.default.url;
-
+    onClickItem(video);
+  };
 
   return (
-    <Col key={video.id.videoId} xs={24} md={11} lg={7} xl={4} span={6} onClick={handleItemClick} >
-      <Card
-        hoverable
-        cover={
-          <img
-            alt={video.snippet.title}
-            src={imageUrl}
-          />
-        }
-      >
-        <Meta title={video.snippet.title} />
+    <Col key={video.id.videoId} xs={24} sm={12} md={8} lg={6} xl={4} onClick={handleItemClick}>
+      <Card hoverable cover={<img alt={title} src={imageUrl} />}>
+        <Meta title={title} />
       </Card>
     </Col>
   );

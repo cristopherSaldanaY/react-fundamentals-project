@@ -1,39 +1,34 @@
-import s from "./particule/style.module.css";
+import { Layout, Menu, Row, Col, Card, Typography } from "antd";
+import { useEffect, useState } from "react";
+import s from "./particule/style.module.css"; // No se usa 's' aquí
 import Logo from "../assets/logo.png";
 import Matriz from "../assets/matriz.jpg";
-import { Layout, Menu, Row, Col, Card, Typography } from "antd";
 import VideoList from "./../molecules/VideoList/VideoList";
 import { YoutubeAPI } from "./../api/youtube-api";
-import { useEffect, useState } from "react";
 import AboutUs from "./../molecules/AboutUs/AboutUs";
 import TrainWithUs from "./../molecules/TrainWithUs/TrainWithUs";
+import VideoModal from "../molecules/VideoModal/VideoModal";
 
 const { Header, Footer, Content } = Layout;
-const { Meta } = Card;
 const { Title } = Typography;
 
 function App() {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeMenuItem, setActiveMenuItem] = useState("about");
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const storedData = localStorage.getItem("youtubeVideos");
         if (storedData) {
-          console.log("busco en el localstorage");
           setVideos(JSON.parse(storedData));
         } else {
-          console.log("busco en la api");
           const videoData = await YoutubeAPI.fetchVideos();
           setVideos(videoData);
           localStorage.setItem("youtubeVideos", JSON.stringify(videoData));
         }
-
-        /*const videoData = await YoutubeAPI.fetchVideos();
-        setVideos(videoData); */
       } catch (error) {
         console.log(error);
       }
@@ -43,16 +38,16 @@ function App() {
   }, []);
 
   const handleVideoClick = (video) => {
-    console.log(video.id.videoId)
     setSelectedVideo(video);
+    setIsModalOpen(true);
   };
 
   const handleMenuClick = (e) => {
     setActiveMenuItem(e.key);
   };
 
-  const handleCarouselChange = (currentSlide) => {
-    setActiveSlideIndex(currentSlide);
+  const handleModalClose = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -110,31 +105,17 @@ function App() {
           </Col>
         </Row>
         <div>
-          <div>
-            {selectedVideo && (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${selectedVideo.id.videoId}`}
-                  title={selectedVideo.snippet.title}
-                  style={{ border: "none" }}
-                  allowFullScreen
-                ></iframe>
-                <h2>{selectedVideo.snippet.title}</h2>
-              </div>
-            )}
-          </div>
           <Title level={2}>Últimos videos publicados</Title>
           <VideoList videos={videos} onClickItem={handleVideoClick} />
+          <div id="selectedVideo">
+            {selectedVideo && (
+              <VideoModal
+                open={isModalOpen}
+                onOk={handleModalClose}
+                selectedVideo={selectedVideo}
+              />
+            )}
+          </div>
         </div>
       </Content>
       <Footer
