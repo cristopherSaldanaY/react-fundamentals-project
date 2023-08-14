@@ -8,61 +8,45 @@ import Kuben from "../../assets/kuben.jpg";
 const { Meta } = Card;
 
 const AboutUs = () => {
+
+  const groupMembers = [
+    {
+      name: "Mestre Railson",
+      avatar: ImgMestre2,
+      description: "Descripción de Mestre Railson...",
+    },
+    {
+      name: "Contra mestre Eddu",
+      avatar: Eddu,
+      description: "Descripción de Contra mestre Eddu...",
+    },
+    {
+      name: "Instructor Kuben",
+      avatar: Kuben,
+      description: "Descripción de Instructor Kuben...",
+    },
+  ];
+
+
+
   return (
-    <div style={{marginTop: "50px"}}>
-      <h2 style={{textAlign: "start"}}>Acerca del grupo</h2>
+    <div style={{ marginTop: "50px" }}>
+      <h2 style={{ textAlign: "start" }}>Acerca del grupo</h2>
       <Carousel autoplay autoplaySpeed={20000}>
-        <Card className={s.cardAbout} title="Mestre Railson">
-          <Meta
-            className={s.cardItem}
-            avatar={
-              <Avatar
-                src={ImgMestre2}
-                className={s.avatarItem}
-                style={{ margin: "0 auto" }}
-              />
-            }
-            description="
-            Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
-            d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com o
-            Mestre Estrela em Porto Seguro/Ba. Quando o Mestre Estrela parou de dar
-            aula, Mestre Railson continuou sua busca pela capoeira, e foi em uma
-            viagem de férias à Belo Horizonte, em 1986, que conheceu o Mestre Mão
-            Branca, se identificou com o seu trabalho e a partir daí passou a fazer
-            parte do seu grupo, recebendo todas as graduações até ser formado Mestre
-            em 1995"
-          />
-        </Card>
-        <Card className={s.cardAbout} title="Contra mestre Eddu">
-          <Meta
-            className={s.cardItem}
-            avatar={<Avatar src={Eddu} className={s.avatarItem} />}
-            description="
-            Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
-            d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com o
-            Mestre Estrela em Porto Seguro/Ba. Quando o Mestre Estrela parou de dar
-            aula, Mestre Railson continuou sua busca pela capoeira, e foi em uma
-            viagem de férias à Belo Horizonte, em 1986, que conheceu o Mestre Mão
-            Branca, se identificou com o seu trabalho e a partir daí passou a fazer
-            parte do seu grupo, recebendo todas as graduações até ser formado Mestre
-            em 1995"
-          />
-        </Card>
-        <Card className={s.cardAbout} title="Instructor Kuben">
-          <Meta
-            className={s.cardItem}
-            avatar={<Avatar src={Kuben} className={s.avatarItem} />}
-            description="
-            Railson do Carmo Domingues, o Mestre Railson, nasceu em Arraial
-            d'Ajuda/Ba em 1967, iniciou na capoeira aos 11 anos de idade com o
-            Mestre Estrela em Porto Seguro/Ba. Quando o Mestre Estrela parou de dar
-            aula, Mestre Railson continuou sua busca pela capoeira, e foi em uma
-            viagem de férias à Belo Horizonte, em 1986, que conheceu o Mestre Mão
-            Branca, se identificou com o seu trabalho e a partir daí passou a fazer
-            parte do seu grupo, recebendo todas as graduações até ser formado Mestre
-            em 1995"
-          />
-        </Card>
+        {groupMembers.map((member, index) => (
+          <Card className={s.cardAbout} title={member.name} key={index}>
+            <Meta
+              className={s.cardItem}
+              avatar={
+                <Avatar
+                  src={member.avatar}
+                  className={s.avatarItem}
+                />
+              }
+              description={member.description}
+            />
+          </Card>
+        ))}
       </Carousel>
     </div>
   );

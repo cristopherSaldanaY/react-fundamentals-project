@@ -6,7 +6,12 @@
 
 .headerStyle{
     background-color: #ffff;
+}
 
+.nav_menu{
+    width: "100%";
+    display: "flex";
+    justify-content: "flex-start";
 }
 
 
@@ -17,22 +22,10 @@
 }
 
 
-.footerStyle{
-    text-align: center;
-    background-color: #ffff;
-    padding: 8px 0;
-}
-
-menu{
-    display: flex;
-    width: 100%;
-}
-
-
   
 .logoImage {
-    max-width: 100%; /* Asegura que la imagen ocupe el ancho máximo del contenedor */
-    max-height: 100%; /* Asegura que la imagen ocupe el alto máximo del contenedor */
+    max-width: 100%; 
+    max-height: 100%;
     padding-top: 5px;
 }
 
@@ -48,13 +41,15 @@ menu{
     gap: 20px;
 }
 
-@media (max-width: 480px){
-    
+.title_style{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 800;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
 }
 
-@media (max-width: 634px){
-
-}
 
 /* Estilos para pantallas pequeñas (hasta 600px) */
 @media (max-width: 767px) {

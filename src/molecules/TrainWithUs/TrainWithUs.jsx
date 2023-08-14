@@ -22,8 +22,8 @@ const TrainWithUs = () => {
             <Card
               title={trainee.name}
               style={{
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra
-                margin: "8px", // Margen alrededor de la tarjeta
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                margin: "8px", 
               }}
             >
               <p><span style={{color: "black", fontWeight: "600"}}>Número:</span> {trainee.number}</p>

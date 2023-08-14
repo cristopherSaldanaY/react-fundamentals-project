@@ -1,5 +1,4 @@
 import { Card, Col } from "antd";
-import s from "./particule/style.module.css";
 
 const { Meta } = Card;
 

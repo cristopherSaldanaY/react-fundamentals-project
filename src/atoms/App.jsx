@@ -1,6 +1,6 @@
-import { Layout, Menu, Row, Col, Card, Typography } from "antd";
+import { Layout, Menu, Row, Col, Typography } from "antd";
 import { useEffect, useState } from "react";
-import s from "./particule/style.module.css"; // No se usa 's' aquí
+import s from "./particule/style.module.css";
 import Logo from "../assets/logo.png";
 import Matriz from "../assets/matriz.jpg";
 import VideoList from "./../molecules/VideoList/VideoList";
@@ -17,6 +17,17 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeMenuItem, setActiveMenuItem] = useState("about");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const items = [
+    {
+      label: "Acerca del grupo",
+      key: "about",
+    },
+    {
+      label: "Entrena con nosotros",
+      key: "train",
+    },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,19 +70,13 @@ function App() {
           </Col>
           <Col xs={12} md={15} style={{ height: "100%" }}>
             <Menu
+              className={s.nav_menu}
               theme="light"
               mode="horizontal"
               selectedKeys={[activeMenuItem]}
               onClick={handleMenuClick}
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "flex-start",
-              }}
-            >
-              <Menu.Item key="about">Acerca del grupo</Menu.Item>
-              <Menu.Item key="train">Entrena con nosotros</Menu.Item>
-            </Menu>
+              items={items}
+            ></Menu>
           </Col>
         </Row>
       </Header>
@@ -79,16 +84,7 @@ function App() {
         <Row>
           <Col lg={13}>
             <div className={s.main_principal}>
-              <h1
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  fontWeight: "800",
-                  fontSize: "2.25rem",
-                  lineHeight: "2.5rem",
-                }}
-              >
+              <h1 className={s.title_style}>
                 <span>Cristopher Saldaña</span>
                 <span style={{ color: "#4f46e5" }}>@kuben_capoeira</span>
               </h1>
