@@ -9,8 +9,8 @@ const { Meta } = Card;
 
 const AboutUs = () => {
   return (
-    <div>
-      <h2>Acerca del grupo</h2>
+    <div style={{marginTop: "50px"}}>
+      <h2 style={{textAlign: "start"}}>Acerca del grupo</h2>
       <Carousel autoplay autoplaySpeed={20000}>
         <Card className={s.cardAbout} title="Mestre Railson">
           <Meta

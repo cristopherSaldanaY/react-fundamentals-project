@@ -12,8 +12,8 @@ const TrainWithUs = () => {
     }
   ];
   return (
-    <div>
-      <h2>Entrena con nosotros</h2>
+    <div style={{marginTop: "50px"}}>
+      <h2 style={{textAlign: "start"}}>Entrena con nosotros</h2>
       <List
         grid={{ gutter: 16, column: 1 }}
         dataSource={trainees}
