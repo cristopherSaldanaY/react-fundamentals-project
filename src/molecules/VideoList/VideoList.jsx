@@ -1,6 +1,5 @@
 import { Row } from "antd";
 import VideoListItem from "./../VideoListItem/VideoListItem";
-import s from "./particule/style.module.css";
 
 const VideoList = ({ videos, onClickItem }) => {
   const handleVideoItemClick = (video) => {

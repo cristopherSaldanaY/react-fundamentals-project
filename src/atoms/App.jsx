@@ -8,6 +8,7 @@ import { YoutubeAPI } from "./../api/youtube-api";
 import AboutUs from "./../molecules/AboutUs/AboutUs";
 import TrainWithUs from "./../molecules/TrainWithUs/TrainWithUs";
 import VideoModal from "../molecules/VideoModal/VideoModal";
+import { items } from "../data/data";
 
 const { Header, Footer, Content } = Layout;
 const { Title } = Typography;
@@ -17,17 +18,6 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeMenuItem, setActiveMenuItem] = useState("about");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const items = [
-    {
-      label: "Acerca del grupo",
-      key: "about",
-    },
-    {
-      label: "Entrena con nosotros",
-      key: "train",
-    },
-  ];
 
   useEffect(() => {
     const fetchData = async () => {

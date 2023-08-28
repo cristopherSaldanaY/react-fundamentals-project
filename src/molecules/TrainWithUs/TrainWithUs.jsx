@@ -1,16 +1,8 @@
 import React from "react";
 import { List, Card } from "antd";
-import s from "./particule/style.module.css"
+import { trainees} from "../../data/data"
 
 const TrainWithUs = () => {
-  const trainees = [
-    {
-      name: "Eduardo Concha",
-      number: "+56988597650",
-      location: "Dojo Old School - América 1109, San Bernardo",
-      schedule: "Martes, Miércoles, 19:00 - 20:30 y Sabado 17:00",
-    }
-  ];
   return (
     <div style={{marginTop: "50px"}}>
       <h2 style={{textAlign: "start"}}>Entrena con nosotros</h2>
