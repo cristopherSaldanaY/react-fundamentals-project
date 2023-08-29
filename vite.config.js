@@ -30,7 +30,7 @@ export default defineConfig({
     debug: true,
     prerenderPaths: ["/"],
     modulePreload: true,
-    outDir: "build",
+    outDir: "dist",
   },
   assetsInclude: ["assets"],
 });
