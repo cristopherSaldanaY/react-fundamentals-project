@@ -26,7 +26,7 @@ export const members = [
   {
     name: "Instructor Kuben",
     avatar: Kuben,
-    description: "Inicio en la capoeira en el año 2012, entrenando como alumno del contra mestre Eddu (Eduardo Concha)",
+    description: "Inicio en la capoeira en el año 2012, entrenando como alumno del contra mestre Eddu (Eduardo Concha). En el año 2018 obtuvo la cuerda de Monitor y en el 2023 la de Instructor.",
   },
 
 ];
